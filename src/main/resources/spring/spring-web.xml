@@ -26,10 +26,10 @@
 	 <!-- 3.配置jsp 显示ViewResolver -->
 	 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	 	<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
-	 	<property name="prefix" value="/WEB-INF/" />
+	 	<property name="prefix" value="/WEB-INF/web/" />
 	 	<property name="suffix" value=".jsp" />
 	 </bean>
 	 
 	 <!-- 4.扫描web相关的bean -->
-	 <context:component-scan base-package="com.huan.ssm.controller" />
+	 <context:component-scan base-package="com.huan.web" />
 </beans>
