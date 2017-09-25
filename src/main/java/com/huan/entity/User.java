@@ -1,10 +1,14 @@
 package com.huan.entity;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  * Created by ubuntu on 17-7-10.
  */
 public class User {
     private int id;
+
     private String userName;
     private String passWord;
 

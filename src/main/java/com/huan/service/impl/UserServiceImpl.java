@@ -22,4 +22,9 @@ public class UserServiceImpl implements UserService {
         System.out.println("=====2.开始调用dao接口");
         return userDao.findUser();
     }
+
+    @Override
+    public void insertUser(User user,String img) {
+        userDao.insertUser(user,img);
+    }
 }
