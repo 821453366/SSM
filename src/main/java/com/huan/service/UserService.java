@@ -11,5 +11,7 @@ public interface UserService {
 
     List<User> findUser();
 
+    List<User> findUserById(int id);
+
     void insertUser(User user,String img);
 }

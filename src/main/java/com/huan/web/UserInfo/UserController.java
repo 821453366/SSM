@@ -11,10 +11,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
@@ -30,16 +33,14 @@ import java.util.UUID;
 
 public class UserController {
 
-    @Autowired
+    @Resource
     private UserService userService;
 
     @RequestMapping("findUser")
     public ModelAndView findUser(){
-        System.out.println("======1.开始调用Service");
        List<User> UserList= userService.findUser();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("userList",UserList);
-        System.out.println("========"+UserList);
         modelAndView.setViewName("UserInfo/list");
         return modelAndView;
     }
@@ -88,5 +89,13 @@ public class UserController {
         }
 
         return UserList;
+    }
+
+    @RequestMapping("/itemsView/{id}")
+    public @ResponseBody List<User> itemsView(@PathVariable("id") Integer id)throws Exception{
+        //调用service查询商品信息
+        List<User> user = userService.findUserById(id);
+        return user;
+
     }
 }

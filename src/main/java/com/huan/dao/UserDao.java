@@ -18,5 +18,7 @@ public interface UserDao {
      */
     List<User> findUser();
 
+    List<User> findUserById(int id);
+
     void insertUser(@Param("User")User user, @Param("img")String img);
 }

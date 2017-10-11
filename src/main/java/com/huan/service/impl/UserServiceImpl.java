@@ -19,8 +19,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findUser() {
-        System.out.println("=====2.开始调用dao接口");
         return userDao.findUser();
+    }
+    public List<User> findUserById(int id) {
+        return userDao.findUserById( id);
     }
 
     @Override
